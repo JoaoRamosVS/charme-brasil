@@ -45,6 +45,47 @@ nav.rolagem ul {
     height: auto;
 }
 
+#mobile-menu-button {
+    all: unset;
+    font-size: XX-large;
+    padding-bottom: 6px;
+}
+
+#mobile-menu {
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(180, 93, 0, 1) 0%, rgb(90, 48, 5) 35%, rgb(44, 27, 14) 59%, rgba(0, 0, 0, 1) 100%);
+    width: 60%;
+    height: 100svh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    display: flex;
+    transition: transform .5s ease, opacity .5s ease, background .5s ease-out;
+}
+
+.mobile-menu-open {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mobile-menu-closed {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+#mobile-menu.menu-backgroundcolor {
+    background: #18181B;
+}
+
+#mobile-menu ul {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    text-align: center;
+}
 
 nav ul {
     padding-right: 3px;
@@ -53,21 +94,28 @@ nav ul {
     text-transform: uppercase;
     flex-wrap: wrap;
     text-align: right;
+    display: none;
 }
 
-nav ul li {
+nav ul li,
+#mobile-menu ul li {
     list-style: none;
     width: 100%;
     transition: all 0.5s ease-in-out;
     flex-wrap: wrap;
 }
 
-nav ul li a {
+nav ul li a,
+.mobile-menu-a {
     text-decoration: none;
     color: aliceblue;
     font-size: 1rem;
     line-height: 1.5rem;
     text-wrap: nowrap;
+}
+
+.mobile-menu-a {
+    font-size: larger;
 }
 
 main {
@@ -76,7 +124,7 @@ main {
     padding-top: 50px;
     width: 100%;
     background: rgba(180, 93, 0, 1);
-}   
+}
 
 .introducao {
     width: 100%;
@@ -150,12 +198,25 @@ main {
 }
 
 .definicao h1 {
-    transition: .7s;
-    font-size: 0;
+    font-size: 3rem;
+    visibility: hidden;
 }
 
 .definicao h1.visivel {
-    font-size: 3rem;
+    visibility: visible;
+    animation: fadeInUp .75s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 .origem p,
@@ -222,7 +283,12 @@ main {
     top: 0;
 }
 
-#next, #previous {
+.slider-item h1 {
+    text-align: left;
+}
+
+#next,
+#previous {
     position: absolute;
     top: 40%;
     color: #fff;
@@ -242,5 +308,5 @@ main {
 .referencias {
     padding-top: 100px;
     padding-bottom: 50px;
-    background: linear-gradient(180deg, rgba(136, 235, 118, 1) 0%, rgba(90, 157, 78, 1) 49%, rgba(29, 57, 24, 1) 73%,  rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(180deg, rgba(136, 235, 118, 1) 0%, rgba(90, 157, 78, 1) 49%, rgba(29, 57, 24, 1) 73%, rgba(0, 0, 0, 1) 100%);
 }

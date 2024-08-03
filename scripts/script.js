@@ -1,19 +1,21 @@
-// Navbar transparente no evento de rolagem
+var menu = document.getElementById('mobile-menu');
+
+// Navbar transparente e outras mudanças no evento de rolagem
 
 window.addEventListener("scroll", () => {
     const nav = document.querySelector('#nav')
     const definicaoTitulo = document.querySelector('.definicao h1')
     nav.classList.toggle('rolagem', window.scrollY > 400)
     definicaoTitulo.classList.toggle('visivel', window.scrollY > 400)
+    menu.classList.toggle('menu-backgroundcolor', window.scrollY > 400)
 })
 
-// Slider de cards
-
 let items = document.querySelectorAll('.slider-item')
-let next = document.getElementById('next')
-let previous = document.getElementById('previous')
-
+const next = document.getElementById('next')
+const previous = document.getElementById('previous')
 let active = 3;
+
+// Função que carrega o slider de cards
 function loadShow() {
     let stt = 0;
     items[active].style.transform = `none`;
@@ -46,4 +48,23 @@ next.onclick = () => {
 previous.onclick = () => {
     active = active - 1 >= 0 ? active - 1 : active;
     loadShow();
+}
+
+var menuButton = document.getElementById('mobile-menu-button');
+function abreFechaMenu() {
+    if(menu.classList.contains('mobile-menu-closed')){
+        menu.classList.remove('mobile-menu-closed')
+        menu.classList.add('mobile-menu-open')
+    }
+    else {
+        menu.classList.remove('mobile-menu-open')
+        menu.classList.add('mobile-menu-closed')
+    }
+}
+menuButton.addEventListener('click', abreFechaMenu)
+
+let botoesMenu = document.querySelectorAll('.mobile-menu-a')
+
+for (botaoMenu of botoesMenu) {
+    botaoMenu.addEventListener('click', abreFechaMenu)
 }
