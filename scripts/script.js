@@ -50,15 +50,19 @@ previous.onclick = () => {
     loadShow();
 }
 
+// Menu estilo hambúrguer para telas mobile
+
 var menuButton = document.getElementById('mobile-menu-button');
 function abreFechaMenu() {
     if(menu.classList.contains('mobile-menu-closed')){
         menu.classList.remove('mobile-menu-closed')
         menu.classList.add('mobile-menu-open')
+        menuButton.innerHTML = '&#10005'
     }
     else {
         menu.classList.remove('mobile-menu-open')
         menu.classList.add('mobile-menu-closed')
+        menuButton.innerHTML = '&#9776'
     }
 }
 menuButton.addEventListener('click', abreFechaMenu)

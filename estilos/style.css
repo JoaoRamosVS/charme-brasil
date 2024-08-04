@@ -274,7 +274,7 @@ main {
     position: absolute;
     width: 200px;
     height: 440px;
-    text-align: justify;
+    text-align: left;
     background-color: #fff;
     border-radius: 10px;
     color: black;
@@ -285,6 +285,7 @@ main {
 
 .slider-item h1 {
     text-align: left;
+    padding-bottom: 20px;
 }
 
 #next,
