@@ -1,7 +1,13 @@
 * {
     margin: 0;
+    overflow-x: hidden;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    --card-media-height : 272px;
+    --card-media-width : 218px;
 }
 
 html {
@@ -13,6 +19,7 @@ html {
 
 nav {
     padding: 0px 10px;
+    overflow-y: hidden;
     height: 110px;
     width: 100%;
     position: fixed;
@@ -307,7 +314,76 @@ main {
 }
 
 .referencias {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: unset;
     padding-top: 100px;
     padding-bottom: 50px;
     background: linear-gradient(180deg, rgba(136, 235, 118, 1) 0%, rgba(90, 157, 78, 1) 49%, rgba(29, 57, 24, 1) 73%, rgba(0, 0, 0, 1) 100%);
+}
+
+.ref-slider-track {
+    padding: 72px 0px;
+    width: fit-content;
+}
+
+.ref-slider {
+    position: relative;
+    display: grid;
+    grid-auto-columns: min-content;
+    grid-auto-flow: column;
+    width: fit-content;
+    gap: 24px;
+}
+
+.ref-slider-item {
+    
+    position: relative;
+    width: var(--card-media-width);
+    transition: normal 0.6s ease-out all;
+    height: var(--card-media-height);
+    border-radius: 26px;
+    border: 2px black solid;
+    overflow: hidden;
+    background-color: gray;
+}
+
+.ref-slider-item-info {
+    background: transparent;
+    display: grid;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    font-size: 13px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    grid-auto-flow: row;
+    grid-auto-rows: min-content;
+    align-content: flex-end;
+    padding: 12px 16px;
+    gap: 8px;
+}
+
+
+.ref-slider-item-media {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    width: var(--card-media-height);
+    height: var(--card-media-height);
+}
+
+.ref-slider-item-media img {
+    width: var(--card-media-width);
+    height: var(--card-media-height);
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center center;
+}
+
+@keyframes move {
+    to {
+        transform: translate(calc(-50% - 1.5em));
+    }
 }

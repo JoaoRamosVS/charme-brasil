@@ -72,3 +72,12 @@ let botoesMenu = document.querySelectorAll('.mobile-menu-a')
 for (botaoMenu of botoesMenu) {
     botaoMenu.addEventListener('click', abreFechaMenu)
 }
+
+const infiniteCarousel = document.querySelector('.ref-slider')
+const carouselItems = document.querySelectorAll('.ref-slider-item')
+
+carouselItems.forEach(item => {
+    const duplicatedItem = item.cloneNode(true);
+    infiniteCarousel.appendChild(duplicatedItem);
+    infiniteCarousel.style.animation = 'move 12s linear infinite'
+})
