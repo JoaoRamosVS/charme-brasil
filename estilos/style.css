@@ -316,14 +316,15 @@ main {
 .referencias {
     display: flex;
     flex-wrap: wrap;
-    box-sizing: unset;
+    gap: 60px;
+    padding-left: 0;
+    padding-right: 0;
     padding-top: 100px;
     padding-bottom: 50px;
     background: linear-gradient(180deg, rgba(136, 235, 118, 1) 0%, rgba(90, 157, 78, 1) 49%, rgba(29, 57, 24, 1) 73%, rgba(0, 0, 0, 1) 100%);
 }
 
 .ref-slider-track {
-    padding: 72px 0px;
     width: fit-content;
 }
 
@@ -337,19 +338,18 @@ main {
 }
 
 .ref-slider-item {
-    
     position: relative;
     width: var(--card-media-width);
     transition: normal 0.6s ease-out all;
     height: var(--card-media-height);
     border-radius: 26px;
-    border: 2px black solid;
+    border: 1px whitesmoke solid;
     overflow: hidden;
     background-color: gray;
 }
 
 .ref-slider-item-info {
-    background: transparent;
+    background: linear-gradient(rgba(0, 0, 0, 0) 51.91%, rgba(0, 0, 0, 0.3) 75.88%);
     display: grid;
     position: absolute;
     z-index: 2;
@@ -380,6 +380,17 @@ main {
     overflow: hidden;
     object-fit: cover;
     object-position: center center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background: black;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes move {
