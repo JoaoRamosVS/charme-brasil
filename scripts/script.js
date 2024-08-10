@@ -1,13 +1,20 @@
 var menu = document.getElementById('mobile-menu');
 
-// Navbar transparente e outras mudanças no evento de rolagem
+// Eventos de scrollagem na página
 
 window.addEventListener("scroll", () => {
-    const nav = document.querySelector('#nav')
+    
+    // Ao sair da seção introdução
+    const nav = document.querySelector('nav')
+    const logo = document.querySelector('#logo')
     const definicaoTitulo = document.querySelector('.definicao h1')
     nav.classList.toggle('rolagem', window.scrollY > 400)
+    logo.classList.toggle('rolagem', window.scrollY > 400)
     definicaoTitulo.classList.toggle('visivel', window.scrollY > 400)
     menu.classList.toggle('menu-backgroundcolor', window.scrollY > 400)
+
+    //Indicativo de qual página estou no menu mobile
+
 })
 
 let items = document.querySelectorAll('.slider-item')
@@ -22,20 +29,39 @@ function loadShow() {
     items[active].style.zIndex = 1;
     items[active].style.filter = 'none'
     items[active].style.opacity = 1;
-    for (var i = active + 1; i < items.length; i++) {
-        stt++;
-        items[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.5 * stt}) perspective(16px) rotateY(-1deg)`;
-        items[i].style.zIndex = 0;
-        items[i].style.filter = 'blur(5px)'
-        items[i].style.opacity = stt > 2 ? 0 : 0.6;
+    if(window.matchMedia("(min-width: 820px)").matches) {
+        for (var i = active + 1; i < items.length; i++) {
+            stt++;
+            items[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
+            items[i].style.zIndex = 0;
+            items[i].style.filter = 'blur(5px)'
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+        stt = 0;
+        for (var i = active - 1; i >= 0; i--) {
+            stt++;
+            items[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
+            items[i].style.zIndex = 0;
+            items[i].style.filter = 'blur(5px)'
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
     }
-    stt = 0;
-    for (var i = active - 1; i >= 0; i--) {
-        stt++;
-        items[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.5 * stt}) perspective(16px) rotateY(1deg)`;
-        items[i].style.zIndex = 0;
-        items[i].style.filter = 'blur(5px)'
-        items[i].style.opacity = stt > 2 ? 0 : 0.6;
+    else {
+        for (var i = active + 1; i < items.length; i++) {
+            stt++;
+            items[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.5 * stt}) perspective(16px) rotateY(-1deg)`;
+            items[i].style.zIndex = 0;
+            items[i].style.filter = 'blur(5px)'
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+        stt = 0;
+        for (var i = active - 1; i >= 0; i--) {
+            stt++;
+            items[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.5 * stt}) perspective(16px) rotateY(1deg)`;
+            items[i].style.zIndex = 0;
+            items[i].style.filter = 'blur(5px)'
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
     }
 }
 loadShow();
@@ -53,15 +79,21 @@ previous.onclick = () => {
 // Menu estilo hambúrguer para telas mobile
 
 var menuButton = document.getElementById('mobile-menu-button');
+const mainElement = document.querySelector('main')
+const htmlElement = document.querySelector('html');
 function abreFechaMenu() {
     if(menu.classList.contains('mobile-menu-closed')){
         menu.classList.remove('mobile-menu-closed')
         menu.classList.add('mobile-menu-open')
+        mainElement.classList.toggle('menu-opened')
+        htmlElement.classList.toggle('menu-opened')
         menuButton.innerHTML = '&#10005'
     }
     else {
         menu.classList.remove('mobile-menu-open')
         menu.classList.add('mobile-menu-closed')
+        mainElement.classList.toggle('menu-opened')
+        htmlElement.classList.toggle('menu-opened')
         menuButton.innerHTML = '&#9776'
     }
 }
@@ -79,5 +111,5 @@ const carouselItems = document.querySelectorAll('.ref-slider-item')
 carouselItems.forEach(item => {
     const duplicatedItem = item.cloneNode(true);
     infiniteCarousel.appendChild(duplicatedItem);
-    infiniteCarousel.style.animation = 'move 12s linear infinite'
+    infiniteCarousel.style.animation = 'move 18s linear infinite'
 })
