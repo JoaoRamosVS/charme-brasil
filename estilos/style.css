@@ -1,6 +1,8 @@
 :root {
     --card-media-height : 272px;
     --card-media-width : 218px;
+    --album-cover-size: 200px;
+    --youtube-size : 43.6px;
 }
 
 * {
@@ -17,7 +19,7 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
-html.menu-opened{ overflow:hidden; }
+html.menu-opened { overflow:hidden; }
 
 nav {
     padding: 0px 10px;
@@ -28,7 +30,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 3;
     transition: .5s;
 }
 
@@ -49,7 +51,7 @@ nav.rolagem ul { display: none; }
 }
 
 #logo a img {
-    max-height: 110px;
+    max-height: 90px;
     width: 100%;
     height: auto;
 }
@@ -64,7 +66,7 @@ nav.rolagem ul { display: none; }
 #mobile-menu {
     overflow: hidden;
     background: linear-gradient(180deg, rgba(180, 93, 0, 1) 0%, rgb(90, 48, 5) 35%, rgb(44, 27, 14) 59%, rgba(0, 0, 0, 1) 100%);
-    width: 70%;
+    width: 80%;
     height: 100svh;
     position: fixed;
     justify-content: center;
@@ -103,12 +105,19 @@ nav ul li a,
 .mobile-menu-a {
     text-decoration: none;
     color: aliceblue;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
     text-wrap: nowrap;
 }
 
-.mobile-menu-a { font-size: larger; }
+#a-definicao.pagAtual, 
+#a-origem.pagAtual,
+#a-brasil.pagAtual,
+#a-referencias.pagAtual {
+    color: #004aad;
+    text-decoration: underline aliceblue;
+    text-underline-offset: 5px;
+}
 
 main {
     height: 100%;
@@ -183,7 +192,7 @@ main.menu-opened { filter: blur(4px); }
 .origem h1,
 .definicao h1,
 .brasil .titulo h1,
-.referencias h1 { margin: auto; font-size: 3rem; text-align: center; }
+.referencias h1, .albuns .titulo h1 { margin: auto; font-size: 3rem; text-align: center; }
 
 .definicao h1 { font-size: 3rem; visibility: hidden; }
 
@@ -198,10 +207,15 @@ main.menu-opened { filter: blur(4px); }
     padding: 20px;
     padding-bottom: 50px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 40px;
     height: auto;
 }
+
+#video-origem p { text-align: center; font-style: italic; padding: 2px; }
 
 #video-origem img { width: 90%; height: 90%; }
 
@@ -212,9 +226,11 @@ main.menu-opened { filter: blur(4px); }
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(29, 57, 24, 1) 49%, rgba(90, 157, 78, 1) 73%, rgba(136, 235, 118, 1) 100%);
 }
 
-.brasil .titulo { display: block; text-align: center; }
+.brasil .titulo, .albuns .titulo { display: block; text-align: center; }
 
-.brasil .titulo span { font-style: italic; font-size: 0.9rem; margin: auto; }
+.brasil .titulo span, 
+.albuns .titulo span,
+.table-artist-name { font-style: italic; font-size: 0.9rem; margin: auto; }
 
 .slider {
     position: relative;
@@ -324,6 +340,89 @@ main.menu-opened { filter: blur(4px); }
     object-position: center center;
 }
 
+.albuns {
+    padding-top: 125px;
+    padding-bottom: 100px;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(1,40,116,1) 25%, rgba(3,84,241,1) 50%, rgba(1,40,116,1) 75%, rgba(0,0,0,1) 100%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.table-albuns {
+    width: 100%;
+    padding: 5px;
+}
+
+.albuns .table-album-name { font-size: larger; text-transform: uppercase; }
+
+.albuns .table-artist-name {
+    padding-bottom: 4px;
+    font-weight: 400;
+}
+
+.albuns td, .td-texto {
+    max-width: 118px;
+    width: 50%;
+    min-width: 35%;
+    vertical-align: middle;
+    padding: 15px;
+    padding-bottom: 40px;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    text-align: justify;
+    overflow: hidden;
+}
+
+.capa-album {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.capa-album-img {
+    overflow: hidden;
+    width: 100%;
+    max-width: var(--album-cover-size);
+    max-height: var(--album-cover-size);
+    box-shadow: 0px 13px 5px -3px rgba(0,0,0,0.75);
+}
+
+.table-albuns img {
+    width: 100%;
+    max-width: var(--album-cover-size);
+    max-height: var(--album-cover-size);
+}
+
+.youtube-play {
+    overflow: hidden;
+}
+
+.youtube-play a img {
+    width: 100%;
+    max-width: var(--youtube-size);
+    max-height: var(--youtube-size);
+}
+
+.youtube-play a {
+    overflow-y: hidden;
+    text-decoration: none;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
 footer {
     background: black;
     width: 100%;
@@ -331,24 +430,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
-
-@keyframes move {
-    to {
-        transform: translate(calc(-50% - 1.5em));
-    }
 }
 
 @media (min-width:870px) {
@@ -376,7 +457,7 @@ footer {
     nav ul {
         display: flex;
         justify-content: space-around;
-        gap: 40px;
+        gap: 30px;
         text-transform: uppercase;
         max-width: 100%;
         width: fit-content;
@@ -394,9 +475,10 @@ footer {
 
     nav ul li a {
         text-align: center;
-        font-size: 1.3rem;
+        padding: 6px;
         text-wrap: wrap;
         transition: .5s;
+        line-height: 1.5rem;
     }
 
     nav ul li:hover { scale: 1.1; }
@@ -415,7 +497,7 @@ footer {
         min-width: 50%;
         flex: 1;
     }
-    
+
     .definicao, .origem {
         padding: 200px 10px;
     }
@@ -429,5 +511,41 @@ footer {
         padding-left: 50px;
     }   
 
-    #video-origem img { width: 70%; height: 70%; }
+    #video-origem img {
+        width: 60%;
+        height: 60%;
+    }
+
+    .albuns .table-album-name { font-size: x-large; }
+
+    .albuns .table-artist-name { font-size: large;}
+
+    .albuns td {
+        width: 35%;
+    }
+
+    .table-albuns p { font-size: 1rem; padding-right: 10%;}
+
+    .td-texto {
+        max-width: 60% !important;
+        width: 60% !important;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes move {
+    to {
+        transform: translate(calc(-50% - 1.5em));
+    }
 }

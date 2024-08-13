@@ -15,6 +15,13 @@ window.addEventListener("scroll", () => {
 
     //Indicativo de qual página estou no menu mobile
 
+    const linkDefinicao = document.querySelector('#a-definicao')
+    const linkOrigem = document.querySelector('#a-origem')
+    const linkBrasil = document.querySelector('#a-brasil')
+    linkDefinicao.classList.toggle('pagAtual', window.scrollY > 400 && window.scrollY < 1500)
+    linkOrigem.classList.toggle('pagAtual', window.scrollY > 1500 && window.scrollY < 2500)
+    linkBrasil.classList.toggle('pagAtual', window.scrollY > 2500)   
+
 })
 
 let items = document.querySelectorAll('.slider-item')
@@ -25,14 +32,20 @@ let active = 3;
 // Função que carrega o slider de cards
 function loadShow() {
     let stt = 0;
+    let scale = 0;
     items[active].style.transform = `none`;
     items[active].style.zIndex = 1;
     items[active].style.filter = 'none'
     items[active].style.opacity = 1;
-    if(window.matchMedia("(min-width: 820px)").matches) {
+
         for (var i = active + 1; i < items.length; i++) {
             stt++;
-            items[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
+            if(window.matchMedia("(min-width: 820px)").matches)
+                scale = 1 - 0.2 * stt;
+            else
+                scale = 1 - 0.5 * stt;
+
+            items[i].style.transform = `translateX(${120 * stt}px) scale(${scale}) perspective(16px) rotateY(-1deg)`;
             items[i].style.zIndex = 0;
             items[i].style.filter = 'blur(5px)'
             items[i].style.opacity = stt > 2 ? 0 : 0.6;
@@ -40,29 +53,16 @@ function loadShow() {
         stt = 0;
         for (var i = active - 1; i >= 0; i--) {
             stt++;
-            items[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
+            if(window.matchMedia("(min-width: 820px)").matches)
+                scale = 1 - 0.2 * stt;
+            else
+                scale = 1 - 0.5 * stt;
+            
+            items[i].style.transform = `translateX(${-120 * stt}px) scale(${scale}) perspective(16px) rotateY(1deg)`;
             items[i].style.zIndex = 0;
             items[i].style.filter = 'blur(5px)'
             items[i].style.opacity = stt > 2 ? 0 : 0.6;
         }
-    }
-    else {
-        for (var i = active + 1; i < items.length; i++) {
-            stt++;
-            items[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.5 * stt}) perspective(16px) rotateY(-1deg)`;
-            items[i].style.zIndex = 0;
-            items[i].style.filter = 'blur(5px)'
-            items[i].style.opacity = stt > 2 ? 0 : 0.6;
-        }
-        stt = 0;
-        for (var i = active - 1; i >= 0; i--) {
-            stt++;
-            items[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.5 * stt}) perspective(16px) rotateY(1deg)`;
-            items[i].style.zIndex = 0;
-            items[i].style.filter = 'blur(5px)'
-            items[i].style.opacity = stt > 2 ? 0 : 0.6;
-        }
-    }
 }
 loadShow();
 
