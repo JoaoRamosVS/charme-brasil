@@ -1,4 +1,13 @@
 var menu = document.getElementById('mobile-menu');
+let items = document.querySelectorAll('.slider-item')
+const next = document.getElementById('next')
+const previous = document.getElementById('previous')
+let active = 3;
+var menuButton = document.getElementById('mobile-menu-button');
+const mainElement = document.querySelector('main')
+const htmlElement = document.querySelector('html');
+const infiniteCarousel = document.querySelector('.ref-slider')
+const carouselItems = document.querySelectorAll('.ref-slider-item')
 
 // Eventos de scrollagem na página
 
@@ -24,11 +33,6 @@ window.addEventListener("scroll", () => {
     linkBrasil.classList.toggle('pagAtual', window.scrollY > 2500 && window.scrollY < 3800)   
     linkReferencias.classList.toggle('pagAtual', window.scrollY > 3800)
 })
-
-let items = document.querySelectorAll('.slider-item')
-const next = document.getElementById('next')
-const previous = document.getElementById('previous')
-let active = 3;
 
 // Função que carrega o slider de cards
 function loadShow() {
@@ -79,9 +83,6 @@ previous.onclick = () => {
 
 // Menu estilo hambúrguer para telas mobile
 
-var menuButton = document.getElementById('mobile-menu-button');
-const mainElement = document.querySelector('main')
-const htmlElement = document.querySelector('html');
 function abreFechaMenu() {
     if(menu.classList.contains('mobile-menu-closed')){
         menu.classList.remove('mobile-menu-closed')
@@ -98,6 +99,7 @@ function abreFechaMenu() {
         menuButton.innerHTML = '&#9776'
     }
 }
+
 menuButton.addEventListener('click', abreFechaMenu)
 
 let botoesMenu = document.querySelectorAll('.mobile-menu-a')
@@ -105,9 +107,6 @@ let botoesMenu = document.querySelectorAll('.mobile-menu-a')
 for (botaoMenu of botoesMenu) {
     botaoMenu.addEventListener('click', abreFechaMenu)
 }
-
-const infiniteCarousel = document.querySelector('.ref-slider')
-const carouselItems = document.querySelectorAll('.ref-slider-item')
 
 carouselItems.forEach(item => {
     const duplicatedItem = item.cloneNode(true);

@@ -34,10 +34,7 @@ nav {
     transition: .5s;
 }
 
-nav.rolagem {
-    background-color: #18181B;
-    height: 90px;
-}
+nav.rolagem { background-color: #18181B; height: 90px; }
 
 nav.rolagem ul { display: none; }
 
@@ -352,17 +349,11 @@ main.menu-opened { filter: blur(4px); }
     gap: 50px;
 }
 
-.table-albuns {
-    width: 100%;
-    padding: 5px;
-}
+.table-albuns { width: 100%; padding: 5px; }
 
 .albuns .table-album-name { font-size: larger; text-transform: uppercase; }
 
-.albuns .table-artist-name {
-    padding-bottom: 4px;
-    font-weight: 400;
-}
+.albuns .table-artist-name { padding-bottom: 4px; font-weight: 400; }
 
 .albuns td, .td-texto {
     max-width: 118px;
@@ -401,9 +392,7 @@ main.menu-opened { filter: blur(4px); }
     max-height: var(--album-cover-size);
 }
 
-.youtube-play {
-    overflow: hidden;
-}
+.youtube-play { overflow: hidden; }
 
 .youtube-play a img {
     width: 100%;
@@ -446,7 +435,6 @@ footer {
     #logo {
         max-width: 50%;
         min-width: fit-content;
-        height: auto;
         padding-left: 0;
         justify-content: start;
     }
@@ -482,24 +470,13 @@ footer {
 
     nav ul li:hover { scale: 1.1; }
 
-    .introducao {
-        height: 100%;
-        padding: 0px 10px 0px 10px;
-    }
+    .introducao { height: 100%; padding: 0px 10px 0px 10px; }
 
-    .introducao h1 {
-        padding: 18px;
-    }
+    .introducao h1 { padding: 18px; }
 
-    .introducao-img {
-        max-width: 50%;
-        min-width: 50%;
-        flex: 1;
-    }
+    .introducao-img { max-width: 50%; min-width: 50%; }
 
-    .definicao, .origem {
-        padding: 200px 10px;
-    }
+    .definicao, .origem { padding: 200px 10px; }
 
     .definicao h1, .origem h1 { min-width: 350.45px; }
     
@@ -519,16 +496,12 @@ footer {
 
     .albuns .table-artist-name { font-size: large;}
 
-    .albuns td {
-        width: 35%;
-    }
+    .albuns td { width: 35%; }
 
     .table-albuns p { font-size: 1rem; padding-right: 10%;}
 
-    .td-texto {
-        max-width: 60% !important;
-        width: 60% !important;
-    }
+    .td-texto { max-width: 60% !important; width: 60% !important; }
+
 }
 
 @keyframes fadeInUp {
