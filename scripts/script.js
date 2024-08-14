@@ -18,10 +18,11 @@ window.addEventListener("scroll", () => {
     const linkDefinicao = document.querySelector('#a-definicao')
     const linkOrigem = document.querySelector('#a-origem')
     const linkBrasil = document.querySelector('#a-brasil')
+    const linkReferencias = document.querySelector('#a-referencias')
     linkDefinicao.classList.toggle('pagAtual', window.scrollY > 400 && window.scrollY < 1500)
     linkOrigem.classList.toggle('pagAtual', window.scrollY > 1500 && window.scrollY < 2500)
-    linkBrasil.classList.toggle('pagAtual', window.scrollY > 2500)   
-
+    linkBrasil.classList.toggle('pagAtual', window.scrollY > 2500 && window.scrollY < 3800)   
+    linkReferencias.classList.toggle('pagAtual', window.scrollY > 3800)
 })
 
 let items = document.querySelectorAll('.slider-item')
@@ -57,7 +58,7 @@ function loadShow() {
                 scale = 1 - 0.2 * stt;
             else
                 scale = 1 - 0.5 * stt;
-            
+
             items[i].style.transform = `translateX(${-120 * stt}px) scale(${scale}) perspective(16px) rotateY(1deg)`;
             items[i].style.zIndex = 0;
             items[i].style.filter = 'blur(5px)'
