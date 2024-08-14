@@ -19,7 +19,7 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
-html.menu-opened { }
+html.menu-opened { overflow: hidden; }
 
 nav {
     padding: 0px 10px;
