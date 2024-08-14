@@ -67,7 +67,7 @@ nav.rolagem ul { display: none; }
     overflow: hidden;
     background: linear-gradient(180deg, rgba(180, 93, 0, 1) 0%, rgb(90, 48, 5) 35%, rgb(44, 27, 14) 59%, rgba(0, 0, 0, 1) 100%);
     width: 80%;
-    height: 100svh;
+    height: 100dvh;
     position: fixed;
     justify-content: center;
     align-items: center;
