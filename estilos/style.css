@@ -48,9 +48,9 @@ nav.rolagem ul { display: none; }
 }
 
 #logo a img {
-    max-height: 90px;
-    width: 100%;
-    height: auto;
+    max-width: 200px;
+    width: fit-content;
+    padding: 10px;
 }
 
 #mobile-menu-button {
@@ -58,6 +58,7 @@ nav.rolagem ul { display: none; }
     max-width: 30px;
     font-size: XX-large;
     padding-bottom: 6px;
+    cursor: pointer;
 }
 
 #mobile-menu {
@@ -185,11 +186,12 @@ main.menu-opened { filter: blur(4px); }
     flex-wrap: wrap-reverse;
 }
 
-
 .origem h1,
 .definicao h1,
 .brasil .titulo h1,
 .referencias h1, .albuns .titulo h1 { margin: auto; font-size: 3rem; text-align: center; }
+
+.origem h1 { padding-top: 50px;}
 
 .definicao h1 { font-size: 3rem; visibility: hidden; }
 
@@ -197,7 +199,7 @@ main.menu-opened { filter: blur(4px); }
 
 .origem p,
 .definicao p,
-.brasil p { width: 80%; text-wrap: wrap; text-align: justify; line-height: 1.5rem; }
+.brasil p { width: 80%; text-wrap: wrap; text-align: justify; line-height: 1.5rem; font-size: 1.2rem; }
 
 #video-origem {
     background-color: black;
@@ -439,8 +441,6 @@ footer {
         justify-content: start;
     }
 
-    #logo a img{ max-width: 200px; width: fit-content; padding: 10px; }
-
     nav ul {
         display: flex;
         justify-content: space-around;
@@ -479,6 +479,8 @@ footer {
     .definicao, .origem { padding: 200px 10px; }
 
     .definicao h1, .origem h1 { min-width: 350.45px; }
+
+    .origem h1 {padding-top: 0;}
     
     .definicao p, .origem p {
         justify-content: center;

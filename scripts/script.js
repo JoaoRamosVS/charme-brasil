@@ -35,6 +35,7 @@ window.addEventListener("scroll", () => {
 })
 
 // Função que carrega o slider de cards
+
 function loadShow() {
     let stt = 0;
     let scale = 0;
@@ -107,6 +108,9 @@ let botoesMenu = document.querySelectorAll('.mobile-menu-a')
 for (botaoMenu of botoesMenu) {
     botaoMenu.addEventListener('click', abreFechaMenu)
 }
+
+
+// Carrossel infinito
 
 carouselItems.forEach(item => {
     const duplicatedItem = item.cloneNode(true);
